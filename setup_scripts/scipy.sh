@@ -20,6 +20,6 @@ git clone https://github.com/scipy/scipy && cd scipy
 git checkout tags/${SCIPY_VERSION}
 git submodule update --init
 
-CC=gcc python -m pip install . -Csetup-args=-Dblas=${MKL_DIST} -Csetup-args=-Dlapack=${MKL_DIST} --user
+CC=gcc python -m pip install . -Csetup-args=-Dblas=${MKL_DIST} -Csetup-args=-Dlapack=${MKL_DIST}
 
 rm -rf ${TMPDIR}

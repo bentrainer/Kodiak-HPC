@@ -20,6 +20,6 @@ git clone https://github.com/numpy/numpy && cd numpy
 git checkout tags/${NPY_VERSION}
 git submodule update --init
 
-python -m pip install . -Csetup-args=-Dblas=${MKL_DIST} -Csetup-args=-Dlapack=${MKL_DIST} --user
+python -m pip install . -Csetup-args=-Dblas=${MKL_DIST} -Csetup-args=-Dlapack=${MKL_DIST}
 
 rm -rf ${TMPDIR}
