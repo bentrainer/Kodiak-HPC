@@ -1,5 +1,5 @@
 #!/bin/bash
-MKLURL="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/cdff21a5-6ac7-4b41-a7ec-351b5f9ce8fd/l_onemkl_p_2024.2.0.664_offline.sh"
+MKLURL="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/6e00e368-b61d-4f87-a409-9b510c022a37/l_onemkl_p_2024.2.1.105_offline.sh"
 
 if [[ ! -z "${MKLROOT}" ]]; then
     echo "MKL exists!"
