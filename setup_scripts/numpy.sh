@@ -2,7 +2,10 @@
 NPY_VERSION="v2.0.0"
 MKL_DIST="mkl-dynamic-lp64-iomp"
 
-module load gcc/11.3.0
+if [[ -z "$(module list | grep gcc)" ]]; then
+    echo "No GCC module found, try to load gcc/11.3.0."
+    module load gcc/11.3.0
+fi
 
 if [[ -z "${CONDA_DEFAULT_ENV}" ]]; then
     echo "No conda environment detected, load python/3.10.4 as default."
