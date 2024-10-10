@@ -31,7 +31,7 @@ if __name__ == "__main__":
         print(e)
     else:
         if old_url!=url:
-            print(f"update \"{old_url}\" -> \"{url}\"")
+            # print(f"update \"{old_url}\" -> \"{url}\"")
             with open(fn, "w", encoding="utf-8") as f:
                 f.write(script.replace(old_url, url))
 
