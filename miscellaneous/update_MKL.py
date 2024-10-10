@@ -34,3 +34,6 @@ if __name__ == "__main__":
             print(f"update \"{old_url}\" -> \"{url}\"")
             with open(fn, "w", encoding="utf-8") as f:
                 f.write(script.replace(old_url, url))
+
+            version = re.search(r"(?<=_)[0-9]{4}.*\d+(?=_)", url).group(0)
+            print(f"update mkl to {version}", end="")
