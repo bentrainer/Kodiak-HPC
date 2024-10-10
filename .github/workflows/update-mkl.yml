@@ -6,6 +6,10 @@ name: Update MKL
 on:
   schedule:
     - cron: '0 0 */3 * *'
+  push:
+    paths:
+      - 'miscellaneous/update_MKL.py'
+      - '.github/workflows/update-mkl.yml'
 
 permissions:
   contents: write
