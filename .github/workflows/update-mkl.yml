@@ -1,0 +1,40 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Update MKL
+
+on:
+  schedule:
+    - cron: '0 0 */3 * *'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bs4 html5lib requests
+
+    - name: Update the script
+      run: |
+        MESSAGE=$(python miscellaneous/update_MKL.py setup_scripts/0_oneMKL.sh)
+        git config --local user.name 'github-actions'
+        git config --local user.email '117783189+github-actions[bot]@users.noreply.github.com'
+        if [[ -n "$(git status --porcelain)" ]]; then
+          echo "config-outdated: true"
+          # echo "::set-output name=config-outdated::true"
+          echo "config-outdated=true" >> $GITHUB_OUTPUT
+          git commit -am "${MESSAGE} by actions"
+          git push
+        fi
