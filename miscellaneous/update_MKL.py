@@ -35,5 +35,8 @@ if __name__ == "__main__":
             with open(fn, "w", encoding="utf-8") as f:
                 f.write(script.replace(old_url, url))
 
-            version = re.search(r"(?<=_)[0-9]{4}.*\d+(?=_)", url).group(0)
-            print(f"update mkl to {version}", end="")
+            try:
+                version = re.search(r"\d+\..*\d+(?=_offline)", url).group(0)
+                print(f"update mkl to {version}", end="")
+            except Exception as e:
+                print("failed to get version:", e)
