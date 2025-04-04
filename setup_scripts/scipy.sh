@@ -1,6 +1,6 @@
 #!/bin/bash
 SCIPY_VERSION="v1.14.0"
-MKL_DIST="mkl-dynamic-lp64-iomp"
+MKL_DIST="mkl-dynamic-ilp64-iomp"
 
 if [[ -z "$(module list | grep gcc)" ]]; then
     echo "No GCC module found, try to load gcc/11.3.0."
