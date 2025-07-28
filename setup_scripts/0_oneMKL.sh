@@ -1,9 +1,11 @@
 #!/bin/bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/bentrainer/Kodiak-HPC/refs/heads/main/setup_scripts/0_oneMKL.sh | bash
+
 MKLURL="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/47c7d946-fca1-441a-b0df-b094e3f045ea/intel-onemkl-2025.2.0.629_offline.sh"
 
 if [[ ! -z "${MKLROOT}" ]]; then
     echo "MKL exists!"
-    read -p "Update? [Y/N] " -n 1 -r
+    read -p "Update? [Y/N] " -n 1 -r < /dev/tty
     echo
 
     if [[ ! $REPLY =~ ^[Yy] ]]; then
